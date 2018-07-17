@@ -1,0 +1,40 @@
+@charset "utf-8";
+html {
+	font-weight:normal;
+	position: relative;
+	height: 100%;	
+}
+
+a {
+	text-decoration: none;
+}
+img {
+	border-style: none;
+}
+ul{list-style: none;}
+/* 基础部分*/
+body {
+	position: relative;
+	height: 100%;	
+	padding: 0;
+	margin: 0 auto;
+	font-family: "Microsoft Yahei";
+}
+
+/*图片列表*/
+.piclist{width: 1200px; height:100%;margin: 0 auto;background-color: #fff;}
+.listul{margin-left: 0;padding-left: 40px; overflow:hidden;height: 100%;}
+.listul li{position: relative;float: left;width: 150px;height: 150px;margin: 5px;overflow: hidden;background: white;}
+.listul li span{position: absolute;bottom: 30px;width: 240px;text-align: center;background: rgba(0,0,0,0.6);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000,endColorstr=#99000000); color: #fff;font-size: 15px;padding: 3px 0;}
+
+/*分页样式*/
+.fydiv{width: 320px;text-align: center;height: 30px;margin: 0 auto;margin-top: 30px;}
+.fenye{text-align: center;height: 30px;margin: 0 auto;}
+.fenye li{float: left;border:1px solid #6CBFB7;height: 26px;line-height: 26px;margin-right: 10px;}
+.fenye li:hover{background-color: #f1f1f1;}
+.fenye li a{text-decoration: none;color:#6CBFB7; display: block; }
+.prev{width: 66px;}
+.next{width: 66px;}
+.numb{width: 26px;}
+.choose{border:1px solid #357973!important;}
+.choose a{color: #357973!important;}
