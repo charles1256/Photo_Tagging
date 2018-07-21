@@ -63,10 +63,9 @@ def getPhoto():
 @app.route("/pro/login", methods=["POST"])
 def login():
     app.logger.info("已经来到register页面啦.")
-
-    # username = StringField(label = u'用户名',validators =[DataRequired()])
-    # password = PasswordField(label = u'面',validators =[DataRequired()])
-    # submir = SubmitFiled(label = u'提交')
+    username = StringField(label = u'用户名',validators =[DataRequired()])
+    password = PasswordField(label = u'面',validators =[DataRequired()])
+    submir = SubmitFiled(label = u'提交')
 
 
     # # 需要直接返回js语句，让页面自动刷新
@@ -108,35 +107,36 @@ def register():
     app.logger.info("来到register 页面了")
     app.logger.info("已经来到register页面啦.")
 
-    # username = StringField(label=u'用户名', validators=[DataRequired(),Length(1,64),Regexp('^[A-Za-z][A-Za-z0-9_.]*$',0,u'用户名必须由字母，数字，下划线组成')])
-    # password = PasswordField(label=u'面', validators=[DataRequired(),EqualTo('passowrd'),message = 'password must be'])
-    # submir = SubmitFiled(u'马上注册')
+    username = StringField(label=u'用户名', validators=[DataRequired(),Length(1,64),Regexp('^[A-Za-z][A-Za-z0-9_.]*$',0,u'用户名必须由字母，数字，下划线组成')])
+    password = PasswordField(label=u'面', validators=[DataRequired(),EqualTo('passowrd'),message = 'password must be'])
+    submir = SubmitFiled(u'马上注册')
 
-    # app.logger.warning("zhehsiygie jinggao ")
-    # # 需要直接返回js语句，让页面自动刷新
-    # # 首先要获取发送过来的信息，name,password
-    # accept_json = request.get_data().decode("utf-8")
-    # username = re.search(r"=([^&]*)", accept_json).group(1)
-    # session["user_name"] = username
-    # password = re.search(r"&.*?=(.*)$", accept_json).group(1)
-    # # 将其加入到数据库中
+    app.logger.warning("zhehsiygie jinggao ")
+    # 需要直接返回js语句，让页面自动刷新
+    # 首先要获取发送过来的信息，name,password
+    accept_json = request.get_data().decode("utf-8")
+    username = re.search(r"=([^&]*)", accept_json).group(1)
+    session["user_name"] = username
+    password = re.search(r"&.*?=(.*)$", accept_json).group(1)
+    # 将其加入到数据库中
 
 
-    # # 进行hex md5 加密
-    # # 返回js语句，更改状态。
-    # # 调用函数进行处理
-    # result = handle_data(task="register", username=username, password=password)
-    # # 判断结果，返回响应的js
-    # # if result:
-    # #     #注册成功，返回正确的js
-    # #     pass
-    # # else:
-    # #     #注册失败，返回错误的js
-    # #     pass
-    # response = get_js(task_type="register", request_status=result, username=username)
-    # # response_header="HTTP/1.1 200 OK\r\n\r\n"
-    #
-    # return (response).encode("utf-8")
+    # 进行hex md5 加密
+    # 返回js语句，更改状态。
+    # 调用函数进行处理
+    result = handle_data(task="register", username=username, password=password)
+    
+    # 判断结果，返回响应的js
+    # if result:
+    #     #注册成功，返回正确的js
+    #     pass
+    # else:
+    #     #注册失败，返回错误的js
+    #     pass
+    response = get_js(task_type="register", request_status=result, username=username)
+    
+    # response_header="HTTP/1.1 200 OK\r\n\r\n"   
+    return (response).encode("utf-8")
 
 
 @app.route("/getPhoto",methods=["POST"])
